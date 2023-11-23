@@ -649,8 +649,7 @@ void PublishLaserScan(ros::Publisher &laser_pub, int nfan, RawData **fans, std::
 	}
 
 	// make  min_ang max_ang  convert to mask
-	msg.header.stamp.sec = ts_beg[0];
-	msg.header.stamp.nsec = ts_beg[1];
+	msg.header.stamp = ros::Time::now();
 
 	double ti = double(ts_beg[0]) + double(ts_beg[1]) / 1000000000.0;
 	double tx = double(ts_end[0]) + double(ts_end[1]) / 1000000000.0;
